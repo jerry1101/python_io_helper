@@ -1,0 +1,45 @@
+root:
+    action1:
+        name: agegate
+        success_msg: step#1 pass agegate
+        failure_msg: step#1 fail agegate
+        needed: false
+        findby: id
+        findby_value: btnYes
+        action: click
+        action_value:
+        sleep_before: 5
+        sleep_after: 0
+    action2:
+        name: change shipping
+        success_msg: step#2 pass change shipping
+        failure_msg: step#2 fail change shipping
+        needed: false
+        findby: name
+        findby_value: header-ship-a
+        action: click
+        action_value:
+        sleep_before: 5
+        sleep_after: 0
+    action3:
+        name: change shipping state
+        success_msg: step#3 pass change shipping state
+        failure_msg: step#3 fail change shipping state
+        needed: true
+        findby: id
+        findby_value: shipping
+        action: click
+        action_value:
+        sleep_before: 5
+        sleep_after: 0
+    action4:
+        name: change state to Cali
+        success_msg: step#4 pass change state to Cali
+        failure_msg: step#4 fail change state to Cali
+        needed: true
+        findby: css
+        findby_value: body > header > div.shopping-method-intro-header > div > div.smc-box.clearfix > div.section1.section > div > div.dropdown > div > div > div > div.jspPane > ul > li:nth-child(46)
+        action: click
+        action_value: California
+        sleep_before: 5
+        sleep_after: 10
