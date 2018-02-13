@@ -4,7 +4,7 @@
 
 
 | parameter|   note  | pssible vaules  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------|:-----|
 |name| action name||
 |success_msg| message for successful action||
 |failure_msg| message for failed actio||
