@@ -1,16 +1,18 @@
 # Placing order with scripts
 
 
-| parameter|   note|  | pssible vaules  |
+
+
+| parameter|   note  | pssible vaules  |
 | ------------- |:-------------:| -----:|
-|name| agegate||
-|success_msg| step#1 pass agegate||
-|failure_msg| step#1 fail agegate||
-|needed| false||
-|findby| id||
-|findby_value| btnYes||
-|action| click||
-|action_value|||
-|enter_iframe| false||
-|sleep_before| 5||
-|sleep_after| 0||
+|name| action name||
+|success_msg| message for successful action||
+|failure_msg| message for failed actio||
+|needed| can not be ignored? |true,false|
+|findby| how to find the element on page?| id,class,xpath|
+|findby_value| vaule to find element||
+|action| |click,sendkeys|
+|action_value|value to fill element||
+|enter_iframe| need to enter iframe before finding element|true,false|
+|sleep_before| secs before action|number|
+|sleep_after| secs after action|numner|
