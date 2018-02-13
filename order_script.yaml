@@ -43,14 +43,14 @@ root:
     findby: id
     findby_value: j_password
     action: sendkeys
-    action_value: hhj1101
+    action_value: xxxxxxxxx
     enter_iframe: false
     sleep_before: 5
     sleep_after: 0
   action5:
     name: submit login
-    success_msg: step#5 submit login
-    failure_msg: step#5 submit login
+    success_msg: step#5 pass submit login
+    failure_msg: step#5 fail submit login
     needed: true
     findby: class
     findby_value: anLoginSubmit
