@@ -1,34 +1,61 @@
 root:
-    action1:
-        name: agegate
-        success_msg: step#1 pass agegate
-        failure_msg: step#1 fail agegate
-        needed: false
-        findby: id
-        findby_value: btnYes
-        action: click
-        action_value:
-        sleep_before: 5
-        sleep_after: 0
-    action2:
-        name: enter login
-        success_msg: step#2 pass enter login
-        failure_msg: step#2 fail enter login
-        needed: true
-        findby: xpath
-        findby_value: //*[@id="loggedin-not-title"]/a/span[2]
-        action: click
-        action_value:
-        sleep_before: 5
-        sleep_after: 5
-    action3:
-        name: enter user name
-        success_msg: step#3 pass enter user name
-        failure_msg: step#3 fail enter user name
-        needed: true
-        findby: id
-        findby_value: j_username
-        action: sendkeys
-        action_value: jhung@totalwine.com
-        sleep_before: 5
-        sleep_after: 5
+  action1:
+    name: agegate
+    success_msg: step#1 pass agegate
+    failure_msg: step#1 fail agegate
+    needed: false
+    findby: id
+    findby_value: btnYes
+    action: click
+    action_value:
+    enter_iframe: false
+    sleep_before: 5
+    sleep_after: 0
+  action2:
+    name: enter login page
+    success_msg: step#2 pass enter login page
+    failure_msg: step#2 fail enter login page
+    needed: true
+    findby: xpath
+    findby_value: //*[@id="loggedin-not-title"]/a/span[2]
+    action: click
+    action_value:
+    enter_iframe: false
+    sleep_before: 5
+    sleep_after: 0
+  action3:
+    name: enter user name
+    success_msg: step#3 pass enter user name
+    failure_msg: step#3 fail enter user name
+    needed: true
+    findby: id
+    findby_value: j_username
+    action: sendkeys
+    action_value: jhung@totalwine.com
+    enter_iframe: true
+    sleep_before: 5
+    sleep_after: 0
+  action4:
+    name: enter password
+    success_msg: step#4 pass enter password
+    failure_msg: step#4 fail enter password
+    needed: true
+    findby: id
+    findby_value: j_password
+    action: sendkeys
+    action_value: hhj1101
+    enter_iframe: false
+    sleep_before: 5
+    sleep_after: 0
+  action5:
+    name: submit login
+    success_msg: step#5 submit login
+    failure_msg: step#5 submit login
+    needed: true
+    findby: class
+    findby_value: anLoginSubmit
+    action: click
+    action_value:
+    enter_iframe: false
+    sleep_before: 5
+    sleep_after: 0

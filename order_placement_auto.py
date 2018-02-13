@@ -14,12 +14,8 @@ def perform_action(driver, findby, findby_value, action, sleep_before, sleep_aft
     if findby == 'id':
 
         print("id--->" + findby_value)
-        elm = WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located((By.ID, findby_value))
-        )
-        #WebDriverWait(driver, 10).until(EC.presence_of_element_located(driver.find_element_by_id(findby_value)))
-        #elm = driver.find_element(By.ID, str(findby_value))
-        #elm = driver.find_element_by_id(findby_value)
+
+        elm = driver.find_element_by_id(findby_value)
         pass
     elif findby == 'class':
         print("class--->" + findby_value)
@@ -60,21 +56,26 @@ def load_script(filpath='order_script.yaml'):
 
 
 def main():
-    driver = webdriver.Chrome('./chromedriver.exe')  # Optional argument, if not specified will search path.
-    #driver = webdriver.Firefox()  # Optional argument, if not specified will search path.
+    #driver = webdriver.Chrome('./chromedriver.exe')  # Optional argument, if not specified will search path.
+    driver = webdriver.Firefox()  # Optional argument, if not specified will search path.
 
     driver.delete_all_cookies()
     driver.get('http://www.totalwine.com');
     driver.implicitly_wait(5)
     #driver.maximize_window()
     script= load_script()
-    for index, action in enumerate(script['root']):
-        #print(script['root'][action]['name'])
-        #print(action+" "+script['root'][action]['name'])
+    action_list = []
+    for action in script['root']:
+        action_list.append(action)
+
+    sorted_action_list = sorted(action_list)
+    for action in sorted_action_list:
+        print("==XX"+action)
 
         findby = script['root'][action]['findby']
         findby_val = script['root'][action]['findby_value']
         action_name = script['root'][action]['action']
+
         action_val = None
         sleepbefore = script['root'][action]['sleep_before']
         sleepafter = script['root'][action]['sleep_after']
@@ -83,7 +84,11 @@ def main():
             action_val =  script['root'][action]['action_value']
         except Exception as e:
             print('no action value found')
-       # print('---->'+action)
+
+        if script['root'][action]['enter_iframe'] == True:
+            print("in iframe")
+            driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+
         if str(script['root'][action]['needed']) == 'ture':
             perform_action(driver,findby,findby_val,action_name,sleepbefore,sleepafter,action_value=action_val)
             print(Fore.WHITE +str(datetime.now())+"  "+Style.BRIGHT+script['root'][action]['success_msg']+"\n")
