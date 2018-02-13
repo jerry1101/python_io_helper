@@ -1,6 +1,7 @@
 # Placing order with scripts
 
 
+## parameters in order_script.yaml to define actions of placing orders
 
 
 | parameter|   note  | pssible vaules  |
